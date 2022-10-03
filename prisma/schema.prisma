@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  admin     Boolean  @default(true)
+  avatar    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Day       Day[]
+}
+
+model Week {
+  id        Int      @id @default(autoincrement())
+  name      String
+  date      String
+  priority  String
+  type      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Day       Day[]
+}
+
+model Day {
+  id          Int           @id @default(autoincrement())
+  name        String
+  day         String
+  week        Week          @relation(fields: [weekId], references: [id])
+  weekId      Int
+  status      Int           @default(1)
+  content     Int           @default(1)
+  user        User?         @relation(fields: [userId], references: [id])
+  userId      Int?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  description String?       @db.Text
+  Attachments Attachments[]
+  Texts       Texts[]
+}
+
+model Attachments {
+  id        Int      @id @default(autoincrement())
+  file      String
+  day       Day?     @relation(fields: [dayId], references: [id])
+  dayId     Int?
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Texts {
+  id        Int      @id @default(autoincrement())
+  text      String
+  day       Day?     @relation(fields: [dayId], references: [id])
+  dayId     Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
