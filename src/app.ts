@@ -14,6 +14,12 @@ app.use("/public", express.static(__dirname + "/public"));
 
 // app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
+const diskspace = require("diskspace");
+
+diskspace.check("", function (err: any, result: any) {
+  console.log(JSON.stringify(result));
+});
+
 routes(app);
 
 export default app;

@@ -48,6 +48,7 @@ model Day {
   description String?       @db.Text
   Attachments Attachments[]
   Texts       Texts[]
+  Video       Video[]
 }
 
 model Attachments {
@@ -67,4 +68,25 @@ model Texts {
   dayId     Int?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model CategoryVideo {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Video     Video[]
+}
+
+model Video {
+  id         Int           @id @default(autoincrement())
+  name       String
+  nameFile   String?
+  link       String
+  category   CategoryVideo @relation(fields: [categoryId], references: [id])
+  categoryId Int
+  day        Day?          @relation(fields: [dayId], references: [id])
+  dayId      Int?
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
 }

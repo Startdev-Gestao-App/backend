@@ -491,6 +491,11 @@ diff@^4.0.1:
   resolved "https://registry.yarnpkg.com/diff/-/diff-4.0.2.tgz#60f3aecb89d5fae520c11aa19efc2bb982aade7d"
   integrity sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==
 
+diskspace@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/diskspace/-/diskspace-2.0.0.tgz#fde3b88d5cd5e15d097bb42e550733e2588cc913"
+  integrity sha512-kYGNy16//xRJuVv1fWEPQYxHej68bHk9HyvwC4Kqcb5e+4A2Ud+XuUfrm49mccNL9GTzy5yCP+5UmjOlHZ3KXQ==
+
 dotenv@^16.0.3:
   version "16.0.3"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.3.tgz#115aec42bac5053db3c456db30cc243a5a836a07"
