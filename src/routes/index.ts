@@ -5,6 +5,7 @@ import dayRoutes from "./day.routes";
 import attachmentRoutes from "./attachment.routes";
 import categoryVideoRoutes from "./categoryVideo.routes";
 import videoRoutes from "./video.routes";
+import homeRoutes from "./home.routes";
 
 const routes = (app: any) => {
   authRoutes(app);
@@ -14,6 +15,7 @@ const routes = (app: any) => {
   attachmentRoutes(app);
   categoryVideoRoutes(app);
   videoRoutes(app);
+  homeRoutes(app);
 };
 
 export default routes;

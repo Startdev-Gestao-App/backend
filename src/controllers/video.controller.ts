@@ -33,7 +33,7 @@ export const upload = (req: Request, res: Response) => {
       const data = {
         name: req.body.name,
         link: `/public/videos/${req.file?.filename}`,
-        categoryId: Number(req.body.categoryId),
+        categoryId: req.body.categoryId ? Number(req.body.categoryId) : null,
         dayId: req?.body?.dayId ? Number(req.body.dayId) : null,
         nameFile: req?.file?.filename ? req?.file?.filename : "",
       };

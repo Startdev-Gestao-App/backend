@@ -79,14 +79,14 @@ model CategoryVideo {
 }
 
 model Video {
-  id         Int           @id @default(autoincrement())
+  id         Int            @id @default(autoincrement())
   name       String
   nameFile   String?
   link       String
-  category   CategoryVideo @relation(fields: [categoryId], references: [id])
-  categoryId Int
-  day        Day?          @relation(fields: [dayId], references: [id])
+  category   CategoryVideo? @relation(fields: [categoryId], references: [id])
+  categoryId Int?
+  day        Day?           @relation(fields: [dayId], references: [id])
   dayId      Int?
-  createdAt  DateTime      @default(now())
-  updatedAt  DateTime      @updatedAt
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
 }

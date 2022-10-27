@@ -1,7 +1,7 @@
 type video = {
   name: string;
   link: string;
-  categoryId: number;
+  categoryId: number | null;
   dayId: number | null;
   nameFile: string;
 };

@@ -54,6 +54,7 @@ export const getById = async (id: number) => {
         },
       },
       Attachments: true,
+      Video: true,
     },
   });
   return day;
