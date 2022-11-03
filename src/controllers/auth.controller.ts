@@ -26,7 +26,7 @@ export const authenticate = async (req: Request, res: Response) => {
         },
         String(process.env.TOKEN_KEY),
         {
-          expiresIn: "1h",
+          expiresIn: "36h",
         }
       );
 
